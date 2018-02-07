@@ -28,7 +28,7 @@ module.exports = {
         app.post('/ordersdel',function(req,res){
             var id = req.body.id;
             var sql =`
-                delete from orders where id=${id}
+                delete from orders where userid=${id}
             `;
             db.delete(sql,function(data){
                 res.send(data);

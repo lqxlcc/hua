@@ -2,7 +2,7 @@ var mysql = require('mysql');
 
 var db = mysql.createPool({
     connectionLimit: 10,
-    host: "localhost",
+    host: "10.3.136.43",
     user: 'root',
     password: '',
     database: 'flower',
@@ -17,37 +17,39 @@ module.exports = {
             } else {
                 _callback({status: true, data: {results, fields}});
             }
-            
+
         })
     },
-    insert: function(_sql, _callback){
-        db.query(_sql, function(error, results){
+    insert: function(_addSql,_callback){
+        db.query(_addSql,function (error, results,fields) {
             if(error){
                 _callback({status: false, error: error})
-            } else {
-                _callback({status: true, data: {results}});
+                 return;
+            }else{
+                _callback({status: true, data: {results, fields}});
             }
-            
-        })        
+        });
     },
-    delete: function(_sql, _callback){
-        db.query(_sql, function(error, results){
+    update: function(_modsql,_callback){
+        db.query(_modsql,function (error,results,fields) {
+            console.log(error,results,fields);
             if(error){
                 _callback({status: false, error: error})
-            } else {
-                _callback({status: true, data: {results}});
+                return;
+            }else{
+                _callback({status: true, data: {results, fields}});
             }
-            
-        })          
+        })
     },
-    update: function(_sql, _callback){
-        db.query(_sql, function(error, results){
+    delete: function(_delsql,_callback){
+        db.query(_delsql,function (error,results,fields) {
             if(error){
                 _callback({status: false, error: error})
-            } else {
-                _callback({status: true, data: {results}});
+                return;
+            }else{
+                _callback({status: true, data: {results, fields}});
             }
-            
-        })  
+
+        })
     }
 }

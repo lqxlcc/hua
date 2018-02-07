@@ -4,14 +4,10 @@ import './index.less'
 import * as actions from './goodsAction'
 import { Pagination,Tooltip,Popconfirm, message} from 'antd';
 class GoodsComponent extends Component{
-    
-    
     componentWillMount(){
         this.props.getGoods()
     }
-    
     // deleteGoods(proItem){
-        
     //     this.props.deleteGoods(proItem.id).then(res => {
     //         console.log(res);
     //         if(res.results.affectedRows == 1){
@@ -20,7 +16,6 @@ class GoodsComponent extends Component{
     //     });
     // }
     confirm(proItem) {
-      
       this.props.deleteGoods(proItem.id).then(res => {
             console.log(res);
             if(res.results.affectedRows == 1){
@@ -36,7 +31,6 @@ class GoodsComponent extends Component{
     }
     // insertGoods(proItem){
     //     this.props.insertGoods(proItem.id).then(res => {
-            
     //     });
     // }
     // pages(event){
@@ -62,9 +56,7 @@ class GoodsComponent extends Component{
             console.log(event.target)
 
             var idx =event.target.cellIndex;
-            
             if(idx===0 || idx===1|| idx===7|| idx===6 || idx===5){
-               
                 return;
             }
 
@@ -80,7 +72,6 @@ class GoodsComponent extends Component{
 
             input.onblur = function(){
                 //如何在此处获取td
-                
                 event.target.innerHTML = input.value;
                 this.editValue = event.target.innerHTML;
                 if(idx===1){
@@ -119,23 +110,14 @@ class GoodsComponent extends Component{
                         // }
                     });
                 }
-                
-                 
-                
             }.bind(this)
-             
-
-            
         }
-
-        
     }
     onChange(pageNumber) {
         console.log('Page: ', pageNumber);
         this.props.getGoods(pageNumber);
     }
     render(){
-        
         return (
             <div>
                 <table className="goodsTable">
@@ -150,8 +132,6 @@ class GoodsComponent extends Component{
                              <th>操作</th>
                          </tr>
                     </thead>
-                   
-
                         {
                     this.props.ajaxResult.map( item => {
                         return (
@@ -180,14 +160,9 @@ class GoodsComponent extends Component{
                                 </Tooltip>
                                 </Popconfirm>
                                 </td>
-                                
-                            
-                                
                              </tr>
 
-                           
                             </tbody>
-                            
                         )
                     })
                 }
@@ -200,7 +175,7 @@ class GoodsComponent extends Component{
             </div>
         )
     }
-} 
+}
 //store.getSate() => state
 let mapStateToProps = (state) => {
     console.log(state)
@@ -209,7 +184,6 @@ let mapStateToProps = (state) => {
         ajaxResult: state.goods.result || [],
         totalcount: state.goods.totalcount === undefined ? [] : state.goods.totalcount[0].rowscount,
         ajaxbigtype:state.goods.bigtype,
-        
     }
 }
 

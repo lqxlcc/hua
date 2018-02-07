@@ -8,26 +8,29 @@ const SubMenu = Menu.SubMenu
 const { Header } = Layout
 
 export default class Top extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            username: ''
-        }
-    }
 
-    componentDidMount() {
-        this.getUser()
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         username: ''
+    //     }
+    // }
 
-    getUser = () => {
-        this.setState({
-            username: 'lqx'
-        })
-    }
+    // componentDidMount() {
+    //     this.getUser()
+    // }
+
+    // getUser = () => {
+    //     this.setState({
+    //         username: ''
+    //     })
+    // }
 
     clear = (item) => {
         if (item.key === 'logOut') {
             this.props.clear()
+            window.localStorage.setItem('id','');
+            window.localStorage.setItem('username','');
         }
     }
 
@@ -45,7 +48,7 @@ export default class Top extends React.Component {
                     onClick={this.props.toggle}
                 />
                 <Menu mode="horizontal" className="logOut" onClick={this.clear}>
-                    <SubMenu title={<span><Icon type="user" />{ this.state.username }</span>} >
+                    <SubMenu title={<span><Icon type="user" />{ window.localStorage.getItem('username') }</span>} >
                         <Menu.Item key="logOut"><Link to="/login" >退出</Link></Menu.Item>
                     </SubMenu>
                 </Menu>

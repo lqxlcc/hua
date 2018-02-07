@@ -6,6 +6,7 @@ import Top from './header'
 import Contents from './content'
 import Footer from './bottom'
 import './index.less'
+import b1 from 'images/flower.jpg'
 
 const SubMenu = Menu.SubMenu;
 const { Sider } = Layout
@@ -50,9 +51,9 @@ export default class Container extends React.Component {
           onCollapse={this.onCollapse}
           className="leftMenu"
         >
-          {this.state.theme === 'light' ? <a href="" target='_blank' rel='noopener noreferrer'><Icon type="github" className="github" /></a> :
-            <a href="" target='_blank' rel='noopener noreferrer'><Icon type="github" className="github white" /></a> }
-          { this.state.theme === 'light' ? <span className="author">lqx</span> : <span className="author white">花礼网</span> }
+          {this.state.theme === 'light' ? <a href="#/index" rel='noopener noreferrer'><img src={b1} className="logo" alt="logo" /></a> :
+            <a href="#/index" rel='noopener noreferrer'><img src={b1} className="logo white" alt="logo" /></a> }
+          { this.state.theme === 'light' ? <span className="author">花礼网</span> : <span className="author white">花礼网</span> }
           <Menu
             theme={this.state.theme}
             onClick={this.handleClick}

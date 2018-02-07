@@ -4,9 +4,15 @@ var app = express();
 
 app.use(bp.urlencoded({extended: false}));
 
-
+var addPro = require('./addPro.js');
+var login = require('./login.js');
+var register = require('./register.js');
+var verify = require('./verify.js');
+var getNum = require('./getNum.js');
+var search = require('./search.js');
 var goods = require('./goods')
 var orders = require('./orders')
+
 
 module.exports = {
     start: function(_port){
@@ -21,10 +27,17 @@ module.exports = {
             } else {
                 next();
             }
-        });          
-
+        });
+        addPro.register(app);
+        login.register(app);
+        register.register(app);
+        verify.register(app);
+        getNum.register(app);
+        search.register(app);
         goods.register(app)
         orders.register(app)
-        app.listen(_port);
+        app.listen(_port,function(){
+            console.log('连接成功')
+        });
     }
 }
