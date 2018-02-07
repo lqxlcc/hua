@@ -11,7 +11,7 @@ export const allMenu = [
         { name: '管理员列表', url: 'managerList' },
         { name: '用户列表', url: 'userList' },
         { name: '商家列表', url: 'businessList' },
-        { name: '食品列表', url: 'goods' },
+        { name: '商品列表', url: 'goods' },
         { name: '订单列表', url: 'orderList' }
         
     ]

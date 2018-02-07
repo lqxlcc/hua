@@ -40,5 +40,14 @@ module.exports = {
             
         })          
     },
-    update: function(){}
+    update: function(_sql, _callback){
+        db.query(_sql, function(error, results){
+            if(error){
+                _callback({status: false, error: error})
+            } else {
+                _callback({status: true, data: {results}});
+            }
+            
+        })  
+    }
 }

@@ -1,18 +1,33 @@
+import * as ajaxConstants from '../../../constants/ajaxConstants'
+import * as goodsConstants from './goodsConstants'
 
-import * as goodsConstants from './goodsConstants';
-
-export function getGoods(){
+export function getGoods(num){
     return {
         url: 'goods',
-        data: {page: 1}
+        data: {page: num}
     }
 }
-
-export function addCart(gid){
+export function deleteGoods(id){
     return {
         types: [goodsConstants.ADDCART_RQUESTING, goodsConstants.ADDCART_RQUESTED, goodsConstants.ADDCART_RQUESTERROR],
-        url: 'addcart',
+        url: 'goodsdel',
         method: 'post',
-        data: {proid: gid}
+        data: {id: id}
+    }
+}
+export function updateGoods(id,price,title,type,saleqty){
+    return {
+        types: [goodsConstants.ADDCART_RQUESTING, goodsConstants.ADDCART_RQUESTED, goodsConstants.ADDCART_RQUESTERROR],
+        url: 'goodsupdate',
+        method: 'post',
+        data: {id:id,price:price,title:title,type:type,saleqty:saleqty}
+    }
+}
+export function insertGoods(id){
+    return {
+        types: [goodsConstants.ADDCART_RQUESTING, goodsConstants.ADDCART_RQUESTED, goodsConstants.ADDCART_RQUESTERROR],
+        url: 'goodsinsert',
+        method: 'post',
+        data: {idx: id}
     }
 }
