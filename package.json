@@ -25,6 +25,7 @@
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.3",
+    "rpaging": "0.0.5",
     "superagent": "^3.8.2"
   },
   "devDependencies": {

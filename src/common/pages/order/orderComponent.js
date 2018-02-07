@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import './index.less'
 import * as actions from './goodsAction'
-import { Pagination,Tooltip,Popconfirm, message} from 'antd';
+import { Pagination } from 'antd';
 class GoodsComponent extends Component{
     
     
@@ -10,29 +10,14 @@ class GoodsComponent extends Component{
         this.props.getGoods()
     }
     
-    // deleteGoods(proItem){
+    deleteGoods(proItem){
         
-    //     this.props.deleteGoods(proItem.id).then(res => {
-    //         console.log(res);
-    //         if(res.results.affectedRows == 1){
-    //             this.props.getGoods();
-    //         }
-    //     });
-    // }
-    confirm(proItem) {
-      
-      this.props.deleteGoods(proItem.id).then(res => {
+        this.props.deleteGoods(proItem.id).then(res => {
             console.log(res);
             if(res.results.affectedRows == 1){
                 this.props.getGoods();
             }
         });
-      message.success('删除成功');
-    }
-
-    cancel(e) {
-      console.log(e);
-      message.error('取消删除');
     }
     // insertGoods(proItem){
     //     this.props.insertGoods(proItem.id).then(res => {
@@ -174,11 +159,7 @@ class GoodsComponent extends Component{
                                     {item.date.slice(0,10)}
                                 </td>
                                 <td className="tdButton">
-                                <Popconfirm title="Are you sure delete this task?" onConfirm={this.confirm.bind(this, item)} onCancel={this.cancel} okText="Yes" cancelText="No">
-                                <Tooltip title="三思而后行哦" placement="right">
-                                <a href="#"><button>删除</button></a>
-                                </Tooltip>
-                                </Popconfirm>
+                                <button onClick={this.deleteGoods.bind(this, item)}>删除</button>
                                 </td>
                                 
                             
