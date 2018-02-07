@@ -146,7 +146,7 @@ class GoodsComponent extends Component{
                              <th className="title">商品描述</th>
                              <th>价格</th>
                              <th>库存</th>
-                             <th>发行时间</th>
+                             <th>添加时间</th>
                              <th>操作</th>
                          </tr>
                     </thead>

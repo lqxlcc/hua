@@ -6,7 +6,7 @@ app.use(bp.urlencoded({extended: false}));
 
 
 var goods = require('./goods')
-
+var orders = require('./orders')
 
 module.exports = {
     start: function(_port){
@@ -24,7 +24,7 @@ module.exports = {
         });          
 
         goods.register(app)
-
+        orders.register(app)
         app.listen(_port);
     }
 }

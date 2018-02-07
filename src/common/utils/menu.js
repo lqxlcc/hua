@@ -12,7 +12,7 @@ export const allMenu = [
         { name: '用户列表', url: 'userList' },
         { name: '商家列表', url: 'businessList' },
         { name: '商品列表', url: 'goods' },
-        { name: '订单列表', url: 'orderList' }
+        { name: '订单列表', url: 'orders' }
         
     ]
   }, {
