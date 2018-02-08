@@ -71,7 +71,7 @@ console.log(this.props.getOrders())
                                         
                                     </td>
                                     <td className="tdButton">
-                                    <Popconfirm title="Are you sure delete this task?" onConfirm={this.confirm.bind(this, item)} onCancel={this.cancel} okText="Yes" cancelText="No">
+                                    <Popconfirm title="是否确认删除?" onConfirm={this.confirm.bind(this, item)} onCancel={this.cancel} okText="Yes" cancelText="No">
                                     <Tooltip title="三思而后行哦" placement="right">
                                     <a href="#"><button>删除</button></a>
                                     </Tooltip>

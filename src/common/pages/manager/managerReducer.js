@@ -1,10 +1,10 @@
 import * as ajaxConstants from '../../../constants/ajaxConstants'
-import * as ordersConstants from './ordersConstants'
+import * as managerConstants from './managerConstants'
 
-export default function ordersReducer(state = {}, action){
+export default function managerReducer(state = {}, action){
     let newState = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case (ajaxConstants.AJAX_REQUESTING || ordersConstants.ORDERS_RQUESTING):
+        case (ajaxConstants.AJAX_REQUESTING || managerConstants.MANAGER_RQUESTING):
             newState.status = 0;
             break;
         case ajaxConstants.AJAX_REQUESTED:
@@ -12,13 +12,13 @@ export default function ordersReducer(state = {}, action){
             newState.status = 1;
             newState.result = action.result.results[0];
             newState.totalcount = action.result.results[1];
-           
+            
             break;
-        case (ajaxConstants.AJAX_REQUESTERROR || ordersConstants.ORDERS_RQUESTERROR):
+        case (ajaxConstants.AJAX_REQUESTERROR || managerConstants.MANAGER_RQUESTERROR):
             newState.status = -1;
             newState.result = action.result.data;
             break;
-        case ordersConstants.ORDERS_RQUESTED:
+        case managerConstants.MANAGER_RQUESTED:
             newState.status = 1;
             break;
     }

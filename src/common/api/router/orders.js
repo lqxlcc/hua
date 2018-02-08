@@ -10,17 +10,17 @@ module.exports = {
             var sql = `
             select 
                 SQL_CALC_FOUND_ROWS
-                user.username, user.id ,user.address,orders.status,orders.date,user.phone 
+                users.username,users.id,users.address,orders.status,orders.date,users.phone 
             from 
                 orders 
                 INNER JOIN 
-            user
-            ON orders.userid=user.id
+            users
+            ON orders.userid=users.id
             limit ${(page - 1) * limit}, ${limit};
             select FOUND_ROWS() as rowscount;`;
             
             db.select(sql, function(data){
-                
+                console.log(data)
                 res.send(data);
             })   
         })

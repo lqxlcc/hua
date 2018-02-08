@@ -9,7 +9,7 @@ import guide from 'pages/guide'
 import search from 'pages/search'
 import Goods from '../pages/goods/goodsComponent'
 import Orders from '../pages/orders/ordersComponent'
-
+import Manager from '../pages/manager/managerComponent'
 const { Content } = Layout
 
 export default class Contents extends React.Component {
@@ -23,6 +23,7 @@ export default class Contents extends React.Component {
         <Route path="/goSearch" component={search} />
         <Route path="/goods" component={Goods} />
         <Route path="/orders" component={Orders} />
+        <Route path="/manager" component={Manager} />
       </Content>
     );
   }

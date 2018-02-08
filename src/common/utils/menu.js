@@ -5,13 +5,13 @@ export const allMenu = [
     icon: 'home',
   }, {
     name: '数据管理',
+
     url: 'dataManage',
     icon: 'global',
     children: [
-        { name: '管理员列表', url: 'managerList' },
+        { name: '管理员列表', url: 'manager' },
         { name: '用户列表', url: 'userList' },
-        { name: '商品列表', url: 'goods' },
-        { name: '订单列表', url: 'orders' }
+        { name: '商品列表', url: 'goods'     },    { name: '订单列表', url: 'orders' }
         
     ]
   }, {
@@ -19,7 +19,7 @@ export const allMenu = [
     url: 'addData',
     icon: 'file-add',
     children: [
-      { name: '添加商品', url: window.localStorage.getItem('updatelimit')===1 ? 'addGoods' : 'guide' }
+      { name: '添加商品', url: window.localStorage.getItem('updatelimit')==1 ? 'addGoods' : 'guide' }
       
     ]
   }, {

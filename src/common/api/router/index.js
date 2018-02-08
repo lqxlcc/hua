@@ -12,7 +12,7 @@ var getNum = require('./getNum.js');
 var search = require('./search.js');
 var goods = require('./goods')
 var orders = require('./orders')
-
+var manager = require('./manager')
 
 module.exports = {
     start: function(_port){
@@ -36,6 +36,7 @@ module.exports = {
         search.register(app);
         goods.register(app)
         orders.register(app)
+        manager.register(app)
         app.listen(_port,function(){
             console.log('连接成功')
         });
