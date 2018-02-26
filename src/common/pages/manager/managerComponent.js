@@ -11,7 +11,7 @@ class Manageromponent extends Component{
     console.log(56)
         document.querySelector('.insertBox').style.display = 'block';
         document.querySelector('.cont').style.display = 'block';
-    }
+    } 
     hideInsert(){
     console.log(2)
         document.querySelector('.insertBox').style.display = 'none';
